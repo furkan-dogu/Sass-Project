@@ -1,0 +1,115 @@
+// responsive 
+@use "../abstracts/mixin" as *;
+
+@include media-sm{
+    .header {
+        display: block;
+        text-align: right;
+        &__links,
+        &__logo{
+            display: none;
+        }
+        i{
+            display: inline-block;
+            // margin-left: auto;
+            padding-right: 1rem;
+        }
+        .show{
+            @include flex(center, center); //? menu görünür hale geldi
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+    .home{
+        width: 90% !important;
+        margin: auto;
+        &__image{
+            display: none;
+        }
+        &__form{
+            button{
+                padding-inline: 35% !important;
+                @include flex(center);
+            }
+        }
+    }
+
+    .about{
+        gap: 0rem !important;
+        &__image {
+            margin: 8rem 0;
+        }
+    }
+
+    .destination{
+        width: 100% !important;
+        &__group{
+            width: 85% !important;
+        }
+    }
+
+    .guide{
+        &__image{
+            margin: 7rem auto;
+        }
+    }
+}
+
+@include media-md{
+    .home {
+        flex-direction: column-reverse;
+        &__form {
+            width: 90%;
+            text-align: center;
+            form{
+                grid-template-columns: none !important;
+                margin-top: 1.5rem;
+            }
+            h2 {
+                margin: auto;
+                font-size: 2.5rem !important; 
+            }
+            h3 {
+                margin: auto;
+            }
+            hr {
+                display: none;
+            }
+            button {
+                width: 50%;
+                margin: auto;
+            }
+        }
+    }
+    
+    .about {
+        flex-direction: column;
+        text-align: center;
+        &__text{
+            &--button{
+                width: 50%;
+            }
+        }
+    }
+
+    .destination{
+        width: 90%;
+        margin: 5rem auto !important;
+        &__header{
+            flex-direction: column;
+            gap: 1rem;
+        }
+        &__group{
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+        }
+    }
+
+    .guide{
+        flex-direction: column;
+        &__text{
+            text-align: center;
+        }
+    }
+}

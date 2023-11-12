@@ -1,0 +1,62 @@
+// destination
+@use "../abstracts/mixin" as *;
+@use "../abstracts/variables" as *;
+
+.destination{
+    margin: 5rem 0;
+    &__header {
+        @include flex(space-between);
+        margin: 0 2rem;
+        h3 {
+            @include setFont("Playfair Display", 700, 1.5rem, auto);
+            color: $headerColor;
+            
+        }
+        button{
+            @include btn(auto, auto, $btnBorderColor, $mainColor);
+            border: none ;
+            @include setFont("Inter", 500, 0.8rem, auto);
+        }
+    }
+    &__group{
+        margin: 2rem auto;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: .5rem;  
+        width: 100%;
+        .destination__card{
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: .5rem;
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: .5rem;
+                cursor: zoom-in;
+                transition: all 1s;
+                &:hover{
+                    scale: 1.1;
+                }
+            }
+            p {
+                background-color: $mainColor;
+                @include flex(center, flex-start);
+                flex-direction: column;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                border-top-right-radius: 0.5rem;
+                width: 50%;
+                span:first-child{
+                    @include setFont(Inter, 600, .9rem, 20px);
+                }
+                span:last-child {
+                    @include setFont(Inter, 200, .7rem, 20px);
+                    color: $fontColor;
+                }
+            }
+        }
+    }
+}
